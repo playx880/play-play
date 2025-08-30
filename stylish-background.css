@@ -1,0 +1,69 @@
+.stylish-bg {
+  min-height: 100vh;
+  min-width: 100vw;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+  background-size: 200% 200%;
+  animation: gradientMove 8s ease-in-out infinite;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.stylish-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.15;
+  background: url('data:image/svg+xml;utf8,<svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="30" cy="30" r="2" fill="white" /><circle cx="60" cy="60" r="2" fill="white" /><circle cx="0" cy="0" r="2" fill="white" /><circle cx="60" cy="0" r="2" fill="white" /><circle cx="0" cy="60" r="2" fill="white" /></svg>');
+  background-repeat: repeat;
+  animation: patternMove 18s linear infinite;
+}
+
+@keyframes patternMove {
+  0% { background-position: 0 0; }
+  100% { background-position: 60px 60px; }
+}
+
+.stylish-bg .float-shape {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.25;
+  mix-blend-mode: lighten;
+  animation: float 14s ease-in-out infinite;
+}
+
+.stylish-bg .float-shape.shape1 {
+  width: 120px; height: 120px;
+  left: 10%; top: 20%;
+  background: #fff476;
+  animation-delay: 0s;
+}
+.stylish-bg .float-shape.shape2 {
+  width: 80px; height: 80px;
+  left: 60%; top: 10%;
+  background: #ff3c6f;
+  animation-delay: 3s;
+}
+.stylish-bg .float-shape.shape3 {
+  width: 100px; height: 100px;
+  left: 40%; top: 55%;
+  background: #61e4ff;
+  animation-delay: 6s;
+}
+
+@keyframes float {
+  0% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-40px) scale(1.12); }
+  100% { transform: translateY(0) scale(1); }
+}
+
+.stylish-bg > *:not(.float-shape) {
+  position: relative;
+  z-index: 1;
+}
